@@ -1,0 +1,39 @@
+==============================================================
+ Lab 5 — Verified Run Outputs (Python 3)
+ Ali Hassan — SU92-BSAIM-F25-338 — AI Lab (CAI601400)
+==============================================================
+
+### 1) Lab5_AlphaBeta_Counter_Complete.py
+--------------------------------------------------------------
+Tree A [3, 5, 2, 9, 0, 7, 0, 0]
+  Minimax:    value = 5, leaves evaluated = 8
+  Alpha-Beta: value = 5, leaves evaluated = 8
+Tree B [3, 5, 2, 9, 3, 5, 2, 9]
+  Minimax:    value = 5, leaves evaluated = 8
+  Alpha-Beta: value = 5, leaves evaluated = 6
+Tree A (sorted) [0, 0, 0, 2, 3, 5, 7, 9]
+  Minimax:    value = 5, leaves evaluated = 8
+  Alpha-Beta: value = 5, leaves evaluated = 6
+
+### 2) task5_ai_lab.py
+--------------------------------------------------------------
+Test: Default Lab Tree
+Array: [3, 5, 2, 9, 3, 5, 2, 9]
+Minimax value: 5 | Leaves Evaluated: 8
+AlphaBeta value: 5 | Leaves Evaluated: 6
+---------------------------------------------
+Test: Best Move Order
+Array: [5, 3, 9, 2, 2, 3, 9, 5]
+Minimax value: 5 | Leaves Evaluated: 8
+AlphaBeta value: 5 | Leaves Evaluated: 5
+---------------------------------------------
+Test: Worst Move Order
+Array: [2, 3, 2, 3, 5, 9, 5, 9]
+Minimax value: 9 | Leaves Evaluated: 8
+AlphaBeta value: 9 | Leaves Evaluated: 8
+---------------------------------------------
+Test: Uniform Values
+Array: [4, 4, 4, 4, 4, 4, 4, 4]
+Minimax value: 4 | Leaves Evaluated: 8
+AlphaBeta value: 4 | Leaves Evaluated: 5
+---------------------------------------------
