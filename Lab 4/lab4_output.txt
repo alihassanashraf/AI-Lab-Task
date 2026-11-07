@@ -1,0 +1,83 @@
+AI LAB 4 - INFORMED SEARCH: HEURISTICS AND A*
+
+Input file: lab4_input.json
+Directed graph and edge costs:
+  S -> A: 1
+  S -> B: 4
+  A -> C: 2
+  B -> G: 5
+  C -> G: 3
+  G: no outgoing edges
+Supplied heuristic: S=5, A=4, B=4, C=2, G=0
+Start: S | Goal: G
+Queue ordering: (f, g, node, path); successor order follows the input file.
+
+TASK 1 - FIRST THREE A* EXPANSIONS (SUPPLIED HEURISTIC)
+1. Selected S: g=0, h=5, f=g+h=0+5=5
+   Frontier after expansion: A(g=1, h=4, f=5), B(g=4, h=4, f=8)
+2. Selected A: g=1, h=4, f=g+h=1+4=5
+   Frontier after expansion: C(g=3, h=2, f=5), B(g=4, h=4, f=8)
+3. Selected C: g=3, h=2, f=g+h=3+2=5
+   Frontier after expansion: G(g=6, h=0, f=6), B(g=4, h=4, f=8)
+   Selection rule: pop the valid frontier entry with the smallest f value.
+   Tie-breaking: lower f, then lower g, then alphabetical node label, then path.
+
+TASK 2 - A* WITH SUPPLIED HEURISTIC
+  Returned path: S -> A -> C -> G
+  Cost reported by search: 6
+  Independently summed path cost: 6
+  Cost check: PASS
+  Processed-node trace (goal included): S, A, C, G
+  Expanded nodes (goal excluded): S, A, C
+  Expansion count: 3
+  Stale queue entries ignored: 0
+
+TASK 2 - UCS CONTROL (ALL HEURISTIC VALUES = 0)
+  Returned path: S -> A -> C -> G
+  Cost reported by search: 6
+  Independently summed path cost: 6
+  Cost check: PASS
+  Processed-node trace (goal included): S, A, C, B, G
+  Expanded nodes (goal excluded): S, A, C, B
+  Expansion count: 4
+  Stale queue entries ignored: 0
+
+TASK 2 - COMPARISON AND INTERPRETATION
+  A*: path cost 6; expansions 3.
+  UCS: path cost 6; expansions 4.
+  Both algorithms return the optimal route on this graph.
+  A* expands one fewer node than UCS in this particular experiment.
+  In UCS, B is expanded before G because g(B)=4 is less than g(G)=6.
+  Expanding B does not improve the best route to G, so G at cost 6 is selected next.
+
+TASK 3 - DELIBERATE OVERESTIMATE (ONLY h(C): 2 -> 10)
+  True remaining cost from C: 3
+  Original h(C): 2
+  Modified h(C): 10
+  Overestimate check: 10 > 3 = True
+  Modified A* result
+  Returned path: S -> B -> G
+  Cost reported by search: 9
+  Independently summed path cost: 9
+  Cost check: PASS
+  Processed-node trace (goal included): S, A, B, G
+  Expanded nodes (goal excluded): S, A, B
+  Expansion count: 3
+  Stale queue entries ignored: 0
+
+HEURISTIC AUDIT - SUPPLIED VALUES
+  Admissibility: h(n) <= true remaining cost
+    S: 5 <= 6 (True)
+    A: 4 <= 5 (True)
+    B: 4 <= 5 (True)
+    C: 2 <= 3 (True)
+    G: 0 <= 0 (True)
+  Consistency: h(u) <= cost(u,v) + h(v)
+    S->A: 5 <= 1+4=5 (True)
+    S->B: 5 <= 4+4=8 (True)
+    A->C: 4 <= 2+2=4 (True)
+    B->G: 4 <= 5+0=5 (True)
+    C->G: 2 <= 3+0=3 (True)
+  Modified C->G check: 10 <= 3 + 0 = 3 (False); consistency fails.
+
+
