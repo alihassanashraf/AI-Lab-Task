@@ -17,9 +17,7 @@ python lab3_edge_cases.py
 python lab3_tests.py
 ```
 
-When the repository root contains a `lab3/` folder, prepend `lab3/` to the filenames above, for example `python lab3/lab3_ucs.py`.
 
-All captured terminal outputs are already saved in `outputs/`; the `11` unit tests passed in this environment. You may re-run the scripts to independently reproduce every trace and reported result.
 
 ## Files
 
