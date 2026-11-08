@@ -1,0 +1,34 @@
+Extended Rule-Based Screening
+Synthetic assumptions: score >= 70; complete documents;
+identity_verified=True; essay_submitted=True.
+Review = flag for a human reviewer, not an award.
+
+Case: pass_all_conditions
+Input: score=82, documents_complete=True, identity_verified=True, essay_submitted=True
+Expected result: Review
+Actual result:   Review
+Reason: all four conditions are satisfied
+Test status: PASS
+
+Case: fail_identity_verification
+Input: score=82, documents_complete=True, identity_verified=False, essay_submitted=True
+Expected result: Hold
+Actual result:   Hold
+Reason: identity_verified is False
+Test status: PASS
+
+Case: fail_essay_submission
+Input: score=82, documents_complete=True, identity_verified=True, essay_submitted=False
+Expected result: Hold
+Actual result:   Hold
+Reason: essay_submitted is False
+Test status: PASS
+
+Case: score_threshold_boundary
+Input: score=70, documents_complete=True, identity_verified=True, essay_submitted=True
+Expected result: Review
+Actual result:   Review
+Reason: all four conditions are satisfied
+Test status: PASS
+
+Summary: 4 core tests; ALL PASSED.

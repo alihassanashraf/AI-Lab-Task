@@ -1,0 +1,18 @@
+Scholarship Screening Comparison
+Review = flag for a human reviewer, not an award decision.
+Probability values are synthetic inputs; no model is trained here.
+
+case | symbolic | threshold | disagreement
+complete_high | Review | Review | False
+complete_low | Hold | Review | True
+incomplete_high | Hold | Review | True
+boundary | Review | Review | False
+
+Guided example using the same input for both approaches:
+symbolic(76, True): Review
+threshold(0.76): Review
+
+Separate boundary sensitivity checks:
+score=69, documents_complete=True -> Hold
+probability=0.69 -> Hold
+
