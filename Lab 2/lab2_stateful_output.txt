@@ -1,0 +1,20 @@
+REQUIRED LAB TASK TRACE
+Step | Previous mode | Percept (temp, occupied) | Target | Command
+-----|---------------|--------------------------|--------|--------
+   1 | NONE          | (29, True)               | COOL   | SEND
+   2 | COOL          | (29, True)               | COOL   | NO SEND
+   3 | COOL          | (20, True)               | IDLE   | SEND
+   4 | IDLE          | (26, True)               | IDLE   | NO SEND
+   5 | IDLE          | (19, True)               | WARM   | SEND
+   6 | WARM          | (29, False)              | ECO    | SEND
+   7 | ECO           | (29, False)              | ECO    | NO SEND
+   8 | ECO           | (24, True)               | IDLE   | SEND
+   9 | IDLE          | (24, True)               | IDLE   | NO SEND
+
+THRESHOLD-NOISE EDGE-CASE TRACE
+Step | Previous mode | Percept (temp, occupied) | Target | Command
+-----|---------------|--------------------------|--------|--------
+   1 | NONE          | (25.9, True)             | IDLE   | SEND
+   2 | IDLE          | (26.1, True)             | COOL   | SEND
+   3 | COOL          | (25.9, True)             | IDLE   | SEND
+   4 | IDLE          | (26.1, True)             | COOL   | SEND

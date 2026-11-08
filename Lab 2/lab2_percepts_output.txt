@@ -1,0 +1,4 @@
+Reflex agent: percept -> target mode
+(29, True) -> COOL
+(24, True) -> IDLE
+(29, False) -> ECO
