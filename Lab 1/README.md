@@ -1,4 +1,4 @@
-# AI Lab 1 — Complete Solution Package
+# AI Lab 1 Complete Solution Package
 
 This folder contains the editable Word report, PDF fallback, plain-text report backup, source code, and captured outputs for Lab 1.
 
